@@ -1,0 +1,82 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jquery-extensions/jquery-extensions.html">
+
+<dom-module id="md-card">
+    <style>
+        :host{
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            background: #fff;
+            border-radius: 2px;
+            border: 1px solid #f0f0f0;
+            border-bottom: 1px solid #cccdd2;
+            min-height:150px;
+            margin-bottom:1em;
+        }
+        :host>header{
+            padding: .1em .5em;
+            color: #b4b5b5;
+            width:100%;
+        }
+        :host>section{
+            color: #b4b5b5;
+            display:-webkit-flex;
+            display:flex;
+            -webkit-flex-direction: column;
+            flex-direction:column;
+            padding: .75em;
+            width:100%;
+        }
+
+        :host hr{
+            border: 0;
+            border-top: 1px solid #e9eaed;
+            margin: 1.25em 0;
+            height: 1px;
+        }
+
+    </style>
+    <template>
+        <header>
+            <span>[[headerText]]</span>
+            <span class="icon-[[icon]] header-icon"></span>
+        </header>
+        <hr>
+        <section>
+            <content></content>
+        </section>
+    </template>
+</dom-module>
+<script>
+
+    Polymer({
+        is: 'md-card',
+        properties:{
+            headerText:{
+                type:String,
+                value:null
+            },
+            headerIcon:{
+                type:String,
+                value:null
+            }
+        },
+
+        ready:function(){
+            this._setIcon();
+        },
+
+
+        _setIcon:function(){
+            if(this.icon){
+                var span=$(this).find('.header-icon');
+                var icon = 'icon-' + this.icon;
+                span.attr('class', '');
+                span.addClass(icon);
+            }
+        }
+
+    });
+
+</script>

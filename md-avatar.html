@@ -1,0 +1,42 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jquery-extensions/jquery-extensions.html">
+
+<dom-module id="md-avatar">
+    <template>
+        <img class="avatar" src="[[src]]">
+        <content></content>
+    </template>
+</dom-module>
+<script>
+
+    Polymer({
+
+        is: 'md-avatar',
+
+        properties: {
+           defaultUrl:{
+               type:String,
+               value:null
+           },
+           dataClass:{
+               type:String,
+               value:null
+           },
+           src:{
+               type:String,
+               value:null
+           }
+        },
+
+        ready:function(){
+            var defaultUrl=this.defaultUrl;
+            var img=$(this).find('.avatar');
+            var src=img.attr('src');
+            if(src===''){
+                img.attr('src',defaultUrl);
+            }
+            if(this.dataClass) img.addClass(this.dataClass);
+        }
+    });
+
+</script>

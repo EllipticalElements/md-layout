@@ -1,0 +1,49 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../jquery-extensions/jquery-extensions.html">
+
+<dom-module id="md-icon-badge">
+    <template>
+        <md-badge></md-badge>
+        <span class="icon-[[icon]]"></span>
+        <content></content>
+    </template>
+</dom-module>
+<script>
+
+    Polymer({
+        is: 'md-icon-badge',
+        properties:{
+            text:{
+                type:String,
+                value:null
+            },
+            icon:{
+                type:String,
+                value:null
+            }
+        },
+
+        ready:function(){
+            this._setText();
+            this._setIcon();
+        },
+
+        _setText:function(){
+            if(this.text){
+                var badge=$(this).find('md-badge');
+                badge.html(this.text);
+            }
+        },
+
+        _setIcon:function(){
+            if(this.icon){
+                var span=$(this).find('span');
+                var icon = 'icon-' + this.icon;
+                span.attr('class', '');
+                span.addClass(icon);
+            }
+        }
+
+    });
+
+</script>
