@@ -1,10 +1,10 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../jquery-extensions/jquery-extensions.html">
+
 
 <dom-module id="md-icon-badge">
     <template>
-        <md-badge></md-badge>
-        <span class="icon-[[icon]]"></span>
+        <md-badge id="md-badge"></md-badge>
+        <span id="span-icon"></span>
         <content></content>
     </template>
 </dom-module>
@@ -30,17 +30,16 @@
 
         _setText:function(){
             if(this.text){
-                var badge=$(this).find('md-badge');
-                badge.html(this.text);
+                var badge=this.$['md-badge'];
+                badge.innerHTML(this.text);
             }
         },
 
         _setIcon:function(){
             if(this.icon){
-                var span=$(this).find('span');
+                var span=this.$['span-icon'];
                 var icon = 'icon-' + this.icon;
-                span.attr('class', '');
-                span.addClass(icon);
+                span.classList.add(icon);
             }
         }
 

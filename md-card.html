@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../jquery-extensions/jquery-extensions.html">
+
 
 <dom-module id="md-card">
     <style>
@@ -40,7 +40,7 @@
     <template>
         <header>
             <span>[[headerText]]</span>
-            <span class="icon-[[icon]] header-icon"></span>
+            <span id="header-icon"></span>
         </header>
         <hr>
         <section>
@@ -69,11 +69,10 @@
 
 
         _setIcon:function(){
-            if(this.icon){
-                var span=$(this).find('.header-icon');
-                var icon = 'icon-' + this.icon;
-                span.attr('class', '');
-                span.addClass(icon);
+            if(this.headerIcon){
+                var span=this.$['header-icon'];
+                var icon = 'icon-' + this.headerIcon;
+                span.classList.add(icon);
             }
         }
 

@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../jquery-extensions/jquery-extensions.html">
+
 
 <dom-module id="md-icon-card">
     <style>
@@ -11,7 +11,7 @@
         }
     </style>
     <template>
-        <span class="icon-[[icon]]"></span>
+        <span id="span-icon"></span>
         <div class="card-text">
             <content></content>
         </div>
@@ -34,13 +34,11 @@
 
         _setIcon:function(){
             if(this.icon){
-                var span=$(this).find('span');
+                var span=this.$['span-icon'];
                 var icon = 'icon-' + this.icon;
-                span.attr('class', '');
-                span.addClass(icon);
+                span.classList.add(icon);
             }
         }
-
     });
 
 </script>
