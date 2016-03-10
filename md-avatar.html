@@ -3,7 +3,7 @@
 
 <dom-module id="md-avatar">
     <template>
-        <img class="avatar" src="[[src]]">
+        <img class="avatar">
         <content></content>
     </template>
 </dom-module>
@@ -14,27 +14,26 @@
         is: 'md-avatar',
 
         properties: {
-           defaultUrl:{
-               type:String,
-               value:null
-           },
-           dataClass:{
-               type:String,
-               value:null
-           },
-           src:{
-               type:String,
-               value:null
-           }
+            defaultUrl:{
+                type:String,
+                value:null
+            },
+            src: {
+                type: String,
+                value: null
+            },
+            dataClass: {
+                type: String,
+                value: null
+            }
         },
 
-        ready:function(){
+        ready: function () {
+            var src=this.src;
             var defaultUrl=this.defaultUrl;
             var img=$(this).find('.avatar');
-            var src=img.attr('src');
-            if(src===''){
-                img.attr('src',defaultUrl);
-            }
+            if(src)img.attr('src',src);
+            else if(defaultUrl) img.attr('src',defaultUrl);
             if(this.dataClass) img.addClass(this.dataClass);
         }
     });
