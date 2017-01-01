@@ -1,6 +1,6 @@
 {
   "name": "md-layout",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "authors": [
     "S. Francis"
   ],
@@ -41,7 +41,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0.0",
     "jquery-extensions": "~1.0.7",
-    "sass-md-components":"~1.2.0"
+    "sass-md-components":"~1.2.0",
+    "iron-icons":"PolymerElements/iron-icons#^1.2.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
