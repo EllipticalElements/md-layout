@@ -3,8 +3,8 @@
 
 <dom-module id="md-icon-badge">
     <template>
-        <md-badge id="md-badge"></md-badge>
-        <span id="span-icon"></span>
+        <md-badge id="mdBadge"></md-badge>
+        <iron-icon icon="[[icon" id="icon"></iron-icon>
         <content></content>
     </template>
 </dom-module>
@@ -30,16 +30,15 @@
 
         _setText:function(){
             if(this.text){
-                var badge=this.$['md-badge'];
+                var badge=this.$.mdBadge;
                 badge.innerHTML(this.text);
             }
         },
 
         _setIcon:function(){
-            if(this.icon){
-                var span=this.$['span-icon'];
-                var icon = 'icon-' + this.icon;
-                span.classList.add(icon);
+            if(!this.icon){
+                var icon=this.$.icon;
+                icon.style.display='none';
             }
         }
 

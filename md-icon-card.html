@@ -11,7 +11,7 @@
         }
     </style>
     <template>
-        <span id="span-icon"></span>
+        <iron-icon id="span-icon" icon="[[icon]]" class="card-icon"></iron-icon>
         <div class="card-text">
             <content></content>
         </div>
@@ -29,16 +29,10 @@
         },
 
         ready:function(){
-            this._setIcon();
-        },
 
-        _setIcon:function(){
-            if(this.icon){
-                var span=this.$['span-icon'];
-                var icon = 'icon-' + this.icon;
-                span.classList.add(icon);
-            }
         }
+
+
     });
 
 </script>
